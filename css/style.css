@@ -1,0 +1,526 @@
+*{box-sizing:border-box}:root{--bg:#f4f1ea;--paper:#fffaf2;--dark:#111827;--text:#243042;--muted:#667085;--line:#e5ded2;--blue:#1f77b4;--orange:#d97706;--shadow:0 18px 45px rgba(22,28,45,.12)}html{scroll-behavior:smooth}body{margin:0;font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;background:var(--bg);color:var(--text)}.progress-bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--orange),var(--blue));z-index:999}.hero{min-height:96vh;color:white;background:linear-gradient(120deg,rgba(17,24,39,.92),rgba(31,41,55,.72)),url("../data/figures/DS03_3_extreme_weather_spatial_distribution.png");background-size:cover;background-position:center}.navbar{position:sticky;top:0;z-index:20;padding:22px 7%;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px)}.brand{font-weight:900;letter-spacing:.08em}.nav-links{display:flex;gap:16px;flex-wrap:wrap}.nav-links a{color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;padding:8px 10px;border-radius:999px}.nav-links a:hover{background:rgba(255,255,255,.14)}.hero-inner{width:min(1040px,88%);margin:0 auto;padding-top:14vh}.kicker,.section-label{color:var(--orange);font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:13px}.hero h1{margin:18px 0 24px;font-size:clamp(42px,7vw,78px);line-height:1.05;letter-spacing:-.04em}.hero-text{width:min(820px,100%);font-size:20px;line-height:1.85;color:rgba(255,255,255,.88)}.hero-actions{margin-top:38px;display:flex;gap:18px;flex-wrap:wrap}.btn{padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:800}.btn.primary{background:white;color:var(--dark)}.btn.ghost{color:white;border:1px solid rgba(255,255,255,.72)}.section{padding:92px 7%}.section.paper{background:var(--paper)}.section.dark{background:var(--dark);color:white}.section.dark .lead,.section.dark p,.section.dark li{color:rgba(255,255,255,.76)}.section h2{margin:10px 0 20px;font-size:clamp(30px,4vw,48px);line-height:1.18;color:inherit;letter-spacing:-.03em}.lead{max-width:960px;font-size:18px;line-height:1.9;color:var(--muted)}.stat-grid{margin-top:36px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.stat-card{background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:22px;padding:28px 18px;text-align:center;box-shadow:var(--shadow)}.stat-card span{display:block;color:var(--blue);font-size:34px;font-weight:950}.stat-card p{margin:8px 0 0;color:var(--muted)}.storyline{margin-top:42px;display:flex;gap:12px;align-items:stretch;flex-wrap:wrap}.story-step{flex:1 1 170px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.story-step b{color:var(--orange);font-size:13px}.story-step span{display:block;margin:8px 0;color:var(--dark);font-weight:900;font-size:20px}.story-step small{color:var(--muted);line-height:1.6}.story-arrow{align-self:center;color:var(--orange);font-size:26px}.split{display:grid;grid-template-columns:.85fr 1.35fr;gap:44px;align-items:start}.sticky-text{position:sticky;top:90px}.insights{padding-left:20px;line-height:1.9}.figure-stack{display:grid;gap:26px}.figure-stack.compact{max-width:1050px;margin:32px auto}.grid{display:grid;gap:26px;margin-top:34px}.grid.two,.grid.one-two{grid-template-columns:repeat(2,1fr)}.figure-card{margin:0;background:white;color:var(--text);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:var(--shadow);overflow:hidden}.section.dark .figure-card{background:#f8fafc}.figure-card.wide{grid-column:1/-1}.figure-card img{display:block;width:100%;border-radius:16px;background:#f1f5f9;cursor:zoom-in;transition:transform .22s ease}.figure-card img:hover{transform:scale(1.012)}.figure-card figcaption{margin-top:15px}.figure-card figcaption b{display:block;color:var(--dark);font-size:17px;margin-bottom:6px}.figure-card figcaption span{color:var(--muted);line-height:1.65}.type-grid{margin:36px 0 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.type-card{background:white;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);padding:24px;border-top:8px solid var(--blue)}.type-card h3{margin:0 0 10px;color:var(--dark)}.type-card p{color:var(--text);font-weight:700}.type-card small{color:var(--muted);line-height:1.7}.type-card.plateau{border-top-color:#66C2A5}.type-card.coast{border-top-color:#8DA0CB}.type-card.humid{border-top-color:#FC8D62}.type-card.north{border-top-color:#E78AC3}.shap-tabs{margin-top:34px}.tab-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.tab-btn,.gallery-controls button{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);color:white;padding:12px 18px;border-radius:999px;cursor:pointer;font-weight:800}.tab-btn.active,.tab-btn:hover{background:white;color:var(--dark)}.tab-panel{display:none}.tab-panel.active{display:block}.conclusion-grid{margin-top:34px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.conclusion-card{background:white;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}.conclusion-card span{color:var(--orange);font-weight:950;font-size:26px}.conclusion-card h3{color:var(--dark);min-height:54px}.conclusion-card p{color:var(--muted);line-height:1.75}.gallery{background:var(--paper)}.gallery-controls{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}.gallery-controls button{border-color:var(--line);color:var(--dark);background:white}.gallery-controls button.active,.gallery-controls button:hover{background:var(--dark);color:white}.gallery-view{margin-top:24px;background:white;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow);text-align:center}.gallery-view img{max-width:100%;max-height:720px;border-radius:18px;cursor:zoom-in}.gallery-view p{color:var(--muted);font-weight:800}footer{padding:34px 7%;background:#0b1120;color:rgba(255,255,255,.78);text-align:center}#backToTop{position:fixed;right:24px;bottom:24px;border:none;width:46px;height:46px;border-radius:999px;background:var(--orange);color:white;font-size:22px;cursor:pointer;display:none;box-shadow:0 12px 30px rgba(217,119,6,.3);z-index:50}.modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.88);padding-top:44px}.modal-content{display:block;margin:auto;max-width:94vw;max-height:86vh;border-radius:14px}.modal-close{position:absolute;top:16px;right:34px;color:white;font-size:42px;font-weight:bold;cursor:pointer}#modalCaption{color:rgba(255,255,255,.86);text-align:center;margin-top:14px}.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}@media(max-width:1120px){.stat-grid,.type-grid,.conclusion-grid{grid-template-columns:repeat(2,1fr)}.split,.grid.two,.grid.one-two{grid-template-columns:1fr}.sticky-text{position:static}.nav-links{display:none}}@media(max-width:640px){.section{padding:66px 5%}.stat-grid,.type-grid,.conclusion-grid{grid-template-columns:1fr}.hero-inner{padding-top:10vh}.hero h1{font-size:38px}.hero-text{font-size:17px}.story-arrow{display:none}}
+
+/* ================================
+   Fixed side table of contents
+================================ */
+.side-toc {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(255, 250, 242, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.side-toc a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.side-toc a:hover {
+  background: var(--dark);
+  color: white;
+}
+
+/* ================================
+   City Climate Explorer
+================================ */
+.city-explorer {
+  background: #fffaf2;
+}
+
+.city-explorer code {
+  background: #eef2ff;
+  color: #334155;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.city-explorer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  gap: 28px;
+  margin-top: 34px;
+  align-items: start;
+}
+
+.city-map-panel,
+.city-info-panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.city-map-panel h3,
+.city-info-panel h3 {
+  margin: 0 0 10px;
+  color: var(--dark);
+}
+
+.city-map-note {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.city-map {
+  position: relative;
+  height: 560px;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(31,119,180,.12), transparent 30%),
+    radial-gradient(circle at 35% 72%, rgba(217,119,6,.10), transparent 28%),
+    linear-gradient(135deg, #eef6ff, #f8fafc);
+  border: 1px solid #dbeafe;
+  overflow: hidden;
+}
+
+.city-map::before {
+  content: "中国城市空间分布示意";
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  color: #64748b;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.city-map::after {
+  content: "";
+  position: absolute;
+  inset: 48px 34px 30px 34px;
+  border: 1px dashed rgba(100,116,139,.32);
+  border-radius: 45% 38% 42% 36%;
+  pointer-events: none;
+}
+
+.city-dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: #1f77b4;
+  color: white;
+  font-size: 12px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(31,119,180,.25);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  z-index: 3;
+}
+
+.city-dot:hover,
+.city-dot.active {
+  background: #d97706;
+  transform: translate(-50%, -50%) scale(1.14);
+  box-shadow: 0 10px 22px rgba(217,119,6,.3);
+  z-index: 8;
+}
+
+.city-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.city-header h3 {
+  font-size: 34px;
+  margin: 0;
+  color: var(--dark);
+}
+
+.city-coord {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.city-type {
+  display: inline-block;
+  margin: 8px 0 18px;
+  background: #eef6ff;
+  color: #1f4e79;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.city-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 0 20px;
+}
+
+.city-tab {
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  color: var(--dark);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.city-tab.active,
+.city-tab:hover {
+  background: var(--dark);
+  color: white;
+}
+
+.city-select-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 8px 0 18px;
+}
+
+.city-select-row label {
+  font-weight: 900;
+  color: var(--dark);
+}
+
+.city-select-row select {
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.city-section-title {
+  margin: 22px 0 12px;
+  font-size: 18px;
+  color: var(--dark);
+  border-left: 5px solid var(--orange);
+  padding-left: 10px;
+}
+
+.city-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 14px 0 18px;
+}
+
+.city-metric {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 88px;
+}
+
+.city-metric span {
+  display: block;
+  font-size: 22px;
+  font-weight: 950;
+  color: #1f77b4;
+  word-break: break-word;
+}
+
+.city-metric p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.city-note {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff7ed;
+  color: #9a3412;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+@media(max-width:1100px){
+  .side-toc {
+    display: none;
+  }
+  .city-explorer-layout {
+    grid-template-columns: 1fr;
+  }
+  .city-map {
+    height: 460px;
+  }
+}
+
+@media(max-width:700px){
+  .city-metric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .city-header {
+    display: block;
+  }
+  .city-coord {
+    text-align: left;
+    margin-top: 8px;
+  }
+}
+
+@media(max-width:520px){
+  .city-metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .city-map {
+    height: 420px;
+  }
+  .city-dot {
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+}
+
+/* ================================
+   City Explorer Dynamic Charts
+================================ */
+.city-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.city-chart-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(22, 28, 45, 0.08);
+}
+
+.city-chart-head h4 {
+  margin: 0 0 6px;
+  color: var(--dark);
+  font-size: 17px;
+}
+
+.city-chart-head p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.city-chart {
+  width: 100%;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.city-svg-chart {
+  width: 100%;
+  height: 280px;
+  display: block;
+}
+
+.chart-grid {
+  stroke: #e2e8f0;
+  stroke-width: 1;
+}
+
+.chart-axis {
+  stroke: #94a3b8;
+  stroke-width: 1.2;
+}
+
+.chart-axis-label {
+  fill: #64748b;
+  font-size: 12px;
+}
+
+.chart-bar {
+  fill: #1f77b4;
+  opacity: .86;
+}
+
+.chart-bar:hover {
+  opacity: 1;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-legend-item i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.city-chart-empty {
+  height: 220px;
+  display: grid;
+  place-items: center;
+  color: #94a3b8;
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px dashed #cbd5e1;
+}
+
+@media(max-width:700px){
+  .city-svg-chart {
+    height: 240px;
+  }
+
+  .city-chart {
+    min-height: 240px;
+  }
+}
+
+/* ================================
+   China-like map visual upgrade
+================================ */
+.city-map {
+  background:
+    linear-gradient(rgba(248, 250, 252, 0.82), rgba(248, 250, 252, 0.82)),
+    url("data:image/svg+xml,%3Csvg width='800' height='620' viewBox='0 0 800 620' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M165 126 L246 87 L354 96 L456 65 L566 111 L641 199 L686 301 L642 388 L671 486 L561 548 L437 520 L334 562 L235 511 L151 430 L94 328 L123 219 Z' fill='%23dbeafe' stroke='%2393c5fd' stroke-width='4'/%3E%3Cpath d='M573 470 L625 502 L590 532 L540 512 Z' fill='%23dbeafe' stroke='%2393c5fd' stroke-width='3'/%3E%3Cpath d='M638 520 L690 548 L654 579 L610 552 Z' fill='%23dbeafe' stroke='%2393c5fd' stroke-width='3'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 72% 28%, rgba(31,119,180,.12), transparent 30%),
+    radial-gradient(circle at 35% 72%, rgba(217,119,6,.10), transparent 28%),
+    linear-gradient(135deg, #eef6ff, #f8fafc);
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: center, center, center, center, center;
+  background-size: cover, 82% 82%, auto, auto, cover;
+}
+
+.city-map::before {
+  content: "中国热门旅游城市空间分布";
+}
+
+.city-map::after {
+  display: none;
+}
+
+.city-dot {
+  border: 2px solid white;
+  font-weight: 900;
+}
+
+.city-dot::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: rgba(31, 119, 180, 0.18);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.city-dot:hover::before,
+.city-dot.active::before {
+  width: 30px;
+  height: 30px;
+  background: rgba(217, 119, 6, 0.22);
+}
+
+#chinaMap{
+    width:100%;
+    height:700px;
+    margin:30px auto;
+    border-radius:12px;
+    box-shadow:0 0 20px rgba(0,0,0,.1);
+    background:#fff;
+}
+
+/* ================================
+   Final ECharts China Map Layout
+================================ */
+
+/* Hide old abstract point map if any old container remains */
+.city-map-panel,
+.city-map {
+  display: none !important;
+}
+
+.city-explorer {
+  background: #fffaf2;
+}
+
+.china-map-wrapper {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  margin: 34px 0 28px;
+  box-shadow: var(--shadow);
+}
+
+.china-map-wrapper h3 {
+  margin: 0 0 10px;
+  color: var(--dark);
+  font-size: 24px;
+}
+
+#chinaMap {
+  width: 100%;
+  height: 720px;
+  margin-top: 18px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 75% 25%, rgba(31,119,180,.10), transparent 30%),
+    linear-gradient(135deg, #f8fbff, #eef6ff);
+  border: 1px solid #dbeafe;
+  overflow: hidden;
+}
+
+.city-profile-wrapper {
+  margin-top: 28px;
+}
+
+.final-city-info {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+@media(max-width:900px) {
+  #chinaMap {
+    height: 560px;
+  }
+}
+
+@media(max-width:600px) {
+  #chinaMap {
+    height: 430px;
+  }
+}
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中国热门旅游城市气候格局与空气质量形成机制</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <aside class="side-toc">
+    <a href="#top">首页</a>
+    <a href="#overview">项目概览</a>
+    <a href="#city-explorer">城市档案</a>
+    <a href="#china-map-section">中国地图</a>
+    <a href="#data">数据探索</a>
+    <a href="#pattern">气候格局</a>
+    <a href="#trend">十年变化</a>
+    <a href="#extreme">极端气候</a>
+    <a href="#aqi">空气质量</a>
+    <a href="#conclusion">研究结论</a>
+    <a href="#gallery">图表浏览</a>
+  </aside>
+
+  <header class="hero" id="top">
+    <nav class="navbar">
+      <div class="brand">Climate × AQI Story</div>
+      <div class="nav-links">
+        <a href="#overview">概览</a><a href="#city-explorer">城市档案</a><a href="#data">数据探索</a><a href="#pattern">气候格局</a><a href="#trend">十年变化</a><a href="#extreme">极端气候</a><a href="#aqi">空气质量机制</a><a href="#conclusion">结论</a>
+      </div>
+    </nav>
+    <section class="hero-inner">
+      <p class="kicker">Data Visualization Project · 2016—2025</p>
+      <h1>中国热门旅游城市<br />气候格局与空气质量形成机制</h1>
+      <p class="hero-text">基于20个中国热门旅游城市的十年气象数据与近三年空气质量数据，从数据探索、城市类型、时间演化、极端气候到机器学习解释，分析城市气候差异如何形成，以及天气因素如何影响空气污染物变化。</p>
+      <div class="hero-actions"><a href="#overview" class="btn primary">开始阅读</a><a href="#gallery" class="btn ghost">浏览图表</a></div>
+    </section>
+  </header>
+  <main>
+    <section class="section intro" id="overview">
+      <div class="section-label">Overview</div><h2>这不是一份旅游推荐，而是一份城市气候数据故事</h2>
+      <p class="lead">本项目选取热门旅游城市作为研究样本，但核心问题不是“去哪里玩”，而是：中国不同城市为什么会形成不同的气候格局？极端天气如何分布？天气条件又如何影响空气质量？</p>
+      <div class="stat-grid reveal">
+        <div class="stat-card"><span>20</span><p>热门旅游城市</p></div><div class="stat-card"><span>10年</span><p>天气数据跨度</p></div><div class="stat-card"><span>73,060</span><p>天气日记录</p></div><div class="stat-card"><span>21,920</span><p>AQI记录</p></div><div class="stat-card"><span>19</span><p>核心图表</p></div>
+      </div>
+      <div class="storyline reveal">
+        <div class="story-step"><b>DS00</b><span>认识数据</span><small>气候与AQI变量之间有什么关系？</small></div><div class="story-arrow">→</div>
+        <div class="story-step"><b>DS01</b><span>发现格局</span><small>城市能否形成典型气候类型？</small></div><div class="story-arrow">→</div>
+        <div class="story-step"><b>DS02</b><span>观察变化</span><small>十年间气候发生了什么？</small></div><div class="story-arrow">→</div>
+        <div class="story-step"><b>DS03</b><span>解释极端</span><small>极端天气如何体现空间差异？</small></div><div class="story-arrow">→</div>
+        <div class="story-step"><b>DS04</b><span>机器学习解释</span><small>天气如何影响空气污染物？</small></div>
+      </div>
+    </section>
+
+    <section class="section city-explorer" id="city-explorer">
+      <div class="section-label">Interactive Explorer</div>
+      <h2>城市气候档案中心</h2>
+      <p class="lead">
+        点击中国地图中的城市点位，查看该城市在总体、年度、月度和季节尺度下的气候与空气质量画像。
+        该模块基于 <code>city_profile</code>、<code>city_year_profile</code>、<code>city_month_profile</code> 和 <code>city_season_profile</code> 生成。
+      </p>
+
+      <div class="china-map-wrapper reveal" id="china-map-section">
+        <h3>中国热门旅游城市分布</h3>
+        <p class="city-map-note">
+          地图固定展示，不支持缩放和拖拽。点击城市点位后，下方城市气候档案会自动切换到对应城市。
+        </p>
+        <div id="chinaMap"></div>
+        <div class="city-note">
+          地图数据来自 <code>assets/maps/china.json</code>。如地图未显示，请在项目根目录运行
+          <code>python -m http.server 8000</code> 后访问 <code>http://localhost:8000</code>。
+        </div>
+      </div>
+
+      <div class="city-profile-wrapper reveal">
+        <div class="city-info-panel final-city-info">
+          <div id="cityInfo">
+            <h3>请选择城市</h3>
+            <p class="city-type">点击上方中国地图中的城市点位后，这里会显示城市档案。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="data">
+      <div class="split">
+        <div class="sticky-text"><div class="section-label">Part 1 · DS00</div><h2>先理解数据：气候与空气质量的基础关系</h2><p>DS00用于建立数据认知：哪些气候变量之间高度相关？污染物之间是否存在共同变化？关键指标在城市之间是否存在明显差异？</p><ul class="insights"><li>气候指标呈现明显的温度、湿度、降水、辐射等多维结构。</li><li>AQI污染物内部存在一定相关性，但不同污染物形成机制并不相同。</li><li>箱线图揭示城市间气候与空气质量差异，为后续聚类分析提供依据。</li></ul></div>
+        <div class="figure-stack">
+          <figure class="figure-card reveal"><img src="data/figures/DS00_1_climate_correlation_heatmap.png" alt="DS00气候相关性热力图" /><figcaption><b>DS00_1 气候相关性热力图</b><span>观察温度、湿度、降水、风速、日照等气候指标之间的相关关系。</span></figcaption></figure>
+          <figure class="figure-card reveal"><img src="data/figures/DS00_2_aqi_correlation_heatmap.png" alt="DS00 AQI相关性热力图" /><figcaption><b>DS00_2 AQI相关性热力图</b><span>分析 PM2.5、PM10、NO₂、SO₂、O₃ 等污染物之间的相关结构。</span></figcaption></figure>
+          <figure class="figure-card reveal"><img src="data/figures/DS00_3_key_indicator_boxplot.png" alt="DS00指标箱线图" /><figcaption><b>DS00_3 关键指标分布箱线图</b><span>比较不同城市在气候和空气质量指标上的离散程度与异常特征。</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="pattern"><div class="section-label">Part 2 · DS01</div><h2>城市气候格局：20个城市形成四类典型类型</h2><p class="lead">通过聚类与PCA降维，20个热门旅游城市被概括为四类气候类型：高原避暑型、滨海暖冬度假型、湿润宜居综合型和北方大陆四季型。</p>
+      <div class="type-grid reveal"><div class="type-card plateau"><h3>高原避暑型</h3><p>昆明、大理、丽江</p><small>低温、高日照、极端高温少。</small></div><div class="type-card coast"><h3>滨海暖冬度假型</h3><p>三亚、海口、深圳、广州、厦门</p><small>冬季温暖、湿度较高、冰冻少。</small></div><div class="type-card humid"><h3>湿润宜居综合型</h3><p>上海、南京、杭州、成都、重庆等</p><small>气候条件综合均衡，湿润特征明显。</small></div><div class="type-card north"><h3>北方大陆四季型</h3><p>北京、哈尔滨、乌鲁木齐</p><small>季节差异显著，寒冷与冰冻天气突出。</small></div></div>
+      <div class="grid two">
+        <figure class="figure-card reveal"><img src="data/figures/DS01_1_city_cluster_pca.png" alt="DS01 PCA聚类图" /><figcaption><b>DS01_1 PCA聚类图</b><span>城市在主成分空间中的聚类结构。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS01_2_type_radar.png" alt="DS01类型雷达图" /><figcaption><b>DS01_2 类型雷达图</b><span>比较四类城市的综合气候画像。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS01_3_city_type_geo_distribution.png" alt="DS01地理分布图" /><figcaption><b>DS01_3 城市类型地理分布图</b><span>气候类型在中国空间上的分布格局。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS01_4_type_feature_heatmap.png" alt="DS01类型特征热力图" /><figcaption><b>DS01_4 类型特征热力图</b><span>解释不同城市类型的主要气候差异。</span></figcaption></figure>
+      </div>
+    </section>
+    <section class="section paper" id="trend"><div class="section-label">Part 3 · DS02</div><h2>时间演化：十年气候变化与近三年空气质量</h2><p class="lead">DS02把城市画像放入时间维度中，观察2016—2025年气温变化、季节舒适度差异、近三年空气质量变化与极端天气趋势。</p>
+      <div class="grid two">
+        <figure class="figure-card reveal"><img src="data/figures/DS02_1_temperature_trend_2016_2025.png" alt="DS02温度趋势" /><figcaption><b>DS02_1 十年平均气温趋势</b><span>观察2016—2025年城市气温变化。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS02_2_season_comfort_distribution.png" alt="DS02季节舒适度" /><figcaption><b>DS02_2 季节舒适度分布</b><span>比较不同季节城市气候舒适度。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS02_3_air_quality_heatmap_2023_2025.png" alt="DS02空气质量热力图" /><figcaption><b>DS02_3 近三年空气质量热力图</b><span>AQI数据仅覆盖2023—2025年。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS02_4_extreme_weather_trend.png" alt="DS02极端天气趋势" /><figcaption><b>DS02_4 极端天气趋势</b><span>高温、极端高温和冰冻天数的年度变化。</span></figcaption></figure>
+      </div>
+    </section>
+    <section class="section" id="extreme"><div class="section-label">Part 4 · DS03</div><h2>极端气候差异：南方高温、北方冰冻、高原稳定</h2><p class="lead">DS03聚焦极端气候。极端天气是城市气候差异最直接的表现，也是连接城市类型与空间机制的重要证据。</p>
+      <div class="grid one-two">
+        <figure class="figure-card reveal"><img src="data/figures/DS03_1_extreme_weather_city_heatmap.png" alt="DS03极端天气热力图" /><figcaption><b>DS03_1 极端天气城市对比</b><span>比较高温、极端高温、寒冷和冰冻天数。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS03_2_extreme_weather_driver_scatter.png" alt="DS03极端天气驱动关系" /><figcaption><b>DS03_2 极端天气驱动关系</b><span>用散点关系解释极端天气与气候因素的联系。</span></figcaption></figure>
+        <figure class="figure-card wide reveal"><img src="data/figures/DS03_3_extreme_weather_spatial_distribution.png" alt="DS03极端天气空间分布" /><figcaption><b>DS03_3 极端天气空间分布</b><span>高温和冰冻天气具有显著空间分异。</span></figcaption></figure>
+      </div>
+    </section>
+    <section class="section dark" id="aqi"><div class="section-label">Part 5 · DS04</div><h2>天气如何影响空气质量：机器学习解释</h2><p class="lead">DS04只使用天气变量预测多种空气污染物，不加入经纬度或城市名，避免模型“记住城市位置”。这一部分回答：哪些污染物更容易被天气解释？不同污染物受哪些天气因素影响？</p>
+      <div class="figure-stack compact">
+        <figure class="figure-card reveal"><img src="data/figures/DS04_1_weather_only_pollutant_prediction_performance.png" alt="DS04预测性能" /><figcaption><b>DS04_1 多污染物预测性能比较</b><span>O₃、NO₂和PM2.5相对更容易被天气变量解释；Dust几乎无法仅靠常规天气变量预测。</span></figcaption></figure>
+        <figure class="figure-card reveal"><img src="data/figures/DS04_2_weather_feature_importance_heatmap.png" alt="DS04天气特征重要性" /><figcaption><b>DS04_2 天气因素重要性热力图</b><span>O₃主要受短波辐射影响，NO₂和PM2.5更受风场、湿度与季节变化影响。</span></figcaption></figure>
+      </div>
+      <div class="shap-tabs reveal"><div class="tab-buttons"><button class="tab-btn active" data-tab="o3">O₃ · 光化学污染</button><button class="tab-btn" data-tab="no2">NO₂ · 燃烧污染</button><button class="tab-btn" data-tab="pm25">PM2.5 · 颗粒污染</button></div>
+        <div class="tab-panel active" id="tab-o3"><figure class="figure-card"><img src="data/figures/DS04_3A_O3_SHAP.png" alt="O3 SHAP" /><figcaption><b>DS04_3A O₃ SHAP解释图</b><span>短波辐射和温度升高会推动臭氧浓度增加，体现光化学污染特征。</span></figcaption></figure></div>
+        <div class="tab-panel" id="tab-no2"><figure class="figure-card"><img src="data/figures/DS04_3B_NO2_SHAP.png" alt="NO2 SHAP" /><figcaption><b>DS04_3B NO₂ SHAP解释图</b><span>风场扩散和季节变化是NO₂变化的重要天气相关因素。</span></figcaption></figure></div>
+        <div class="tab-panel" id="tab-pm25"><figure class="figure-card"><img src="data/figures/DS04_3C_PM25_SHAP.png" alt="PM25 SHAP" /><figcaption><b>DS04_3C PM2.5 SHAP解释图</b><span>PM2.5受风场、降水、湿度与季节共同影响。</span></figcaption></figure></div>
+      </div>
+    </section>
+    <section class="section conclusion" id="conclusion"><div class="section-label">Conclusion</div><h2>五条核心发现</h2><div class="conclusion-grid">
+      <article class="conclusion-card reveal"><span>01</span><h3>城市气候类型明显分化</h3><p>20个热门旅游城市可以归纳为高原避暑型、滨海暖冬度假型、湿润宜居综合型和北方大陆四季型。</p></article>
+      <article class="conclusion-card reveal"><span>02</span><h3>近十年气温整体上升</h3><p>2016—2025年间，多数城市表现出升温趋势，极端高温风险值得关注。</p></article>
+      <article class="conclusion-card reveal"><span>03</span><h3>极端天气空间分异显著</h3><p>南方与内陆高温突出，北方冰冻明显，高原城市极端天气相对稳定。</p></article>
+      <article class="conclusion-card reveal"><span>04</span><h3>天气对污染物解释能力不同</h3><p>臭氧最容易被天气变量解释，Dust很难通过常规天气因素预测。</p></article>
+      <article class="conclusion-card reveal"><span>05</span><h3>污染物机制存在差异</h3><p>O₃受辐射驱动，NO₂受风场和季节控制，PM2.5受风、湿度和降水共同影响。</p></article>
+    </div></section>
+    <section class="section gallery" id="gallery"><div class="section-label">Gallery</div><h2>核心图表快速浏览</h2><p class="lead">点击按钮切换图表，点击图片可放大查看。</p><div class="gallery-controls" id="galleryControls"></div><div class="gallery-view"><img id="galleryImage" src="data/figures/DS01_3_city_type_geo_distribution.png" alt="图表预览" /><p id="galleryCaption">DS01_3 城市类型地理分布图</p></div></section>
+  </main>
+  <footer><p>中国热门旅游城市气候格局与空气质量形成机制 · 数据可视化课程项目</p></footer>
+  <button id="backToTop" title="返回顶部">↑</button>
+  <div class="modal" id="imageModal"><span class="modal-close" id="modalClose">&times;</span><img id="modalImage" class="modal-content" alt="放大图" /><div id="modalCaption"></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="js/china_map.js"></script>
+  <script src="js/city_data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

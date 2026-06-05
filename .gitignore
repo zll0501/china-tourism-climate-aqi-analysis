@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+.env
+.vscode/
+
+data/raw/
+
+assets/maps/
+
+*.zip
+
+.DS_Store
