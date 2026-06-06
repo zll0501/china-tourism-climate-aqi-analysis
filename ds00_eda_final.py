@@ -136,7 +136,7 @@ def plot_ds00_1_climate_correlation(df):
     )
 
     plt.title(
-        "DS00_1 气候指标相关性热力图（2016-2025）",
+        "气候指标相关性热力图（2016-2025）",
         fontsize=20,
         fontweight="bold",
         pad=18
@@ -197,7 +197,7 @@ def plot_ds00_2_aqi_correlation(df):
     )
 
     plt.title(
-        "DS00_2 空气质量指标相关性热力图（AQI：2023-2025）",
+        "空气质量指标相关性热力图（AQI：2023-2025）",
         fontsize=20,
         fontweight="bold",
         pad=18
@@ -292,7 +292,7 @@ def plot_ds00_3_key_indicator_boxplot(df):
     )
 
     ax.set_title(
-        "DS00_3 关键气候与空气质量指标分布箱线图",
+        "关键气候与空气质量指标分布箱线图",
         fontsize=20,
         fontweight="bold",
         pad=18
@@ -304,7 +304,7 @@ def plot_ds00_3_key_indicator_boxplot(df):
 
     ax.text(
         0.01,
-        -0.18,
+        -0.3,
         "说明：箱线图用于比较20个城市在不同指标上的离散程度；空气质量相关指标仅基于2023-2025年AQI数据。",
         transform=ax.transAxes,
         fontsize=11,

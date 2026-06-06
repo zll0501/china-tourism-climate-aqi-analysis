@@ -620,3 +620,23 @@ function initFinalChinaMap(cities, fmt) {
     `;
   }
 }
+
+
+const sideToc = document.querySelector(".side-toc");
+
+if (sideToc) {
+  sideToc.addEventListener("click", function (event) {
+    event.stopPropagation();
+    sideToc.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    sideToc.classList.remove("open");
+  });
+
+  sideToc.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function () {
+      sideToc.classList.remove("open");
+    });
+  });
+}

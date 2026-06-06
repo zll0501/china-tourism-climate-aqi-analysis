@@ -144,7 +144,7 @@ def save_fig(filename):
     print(f"已保存：{out_path}")
 
 
-def add_note(fig, text, y=0.01):
+def add_note(fig, text, y=0.03):
     fig.text(
         0.5,
         y,
@@ -235,7 +235,7 @@ def plot_ds03_1_extreme_weather_heatmap(df):
         ax=ax,
     )
 
-    ax.set_title("DS03_1 中国热门旅游城市极端天气城市对比热力图", pad=18, fontweight="bold")
+    ax.set_title("中国热门旅游城市极端天气城市对比热力图", pad=18, fontweight="bold")
     ax.set_xlabel("极端天气指标")
     ax.set_ylabel("城市")
 
@@ -385,7 +385,7 @@ def plot_ds03_2_extreme_driver_scatter(df):
         frameon=True,
     )
 
-    fig.suptitle("DS03_2 中国热门旅游城市极端天气驱动关系分析", fontsize=20, fontweight="bold", y=1.08)
+    fig.suptitle("中国热门旅游城市极端天气驱动关系分析", fontsize=20, fontweight="bold", y=1.08)
 
     add_note(
         fig,
@@ -446,7 +446,7 @@ def plot_ds03_3_spatial_distribution(df):
         cbar = plt.colorbar(sc, ax=ax, shrink=0.82)
         cbar.set_label(cbar_label)
 
-    fig.suptitle("DS03_3 中国热门旅游城市极端天气空间分布图", fontsize=20, fontweight="bold", y=1.02)
+    fig.suptitle("中国热门旅游城市极端天气空间分布图", fontsize=20, fontweight="bold", y=1.02)
 
     add_note(
         fig,
@@ -513,7 +513,7 @@ def plot_ds03_4_mechanism_framework(df):
     ax.text(
         0.5,
         0.95,
-        "DS03_4 中国热门旅游城市气候差异形成机制框架图",
+        "中国热门旅游城市气候差异形成机制框架图",
         ha="center",
         va="center",
         fontsize=22,

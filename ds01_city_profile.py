@@ -255,7 +255,7 @@ def add_analysis_scores(df):
 # 6. DS01_1 PCA聚类图
 # =========================
 def plot_ds01_1_pca(df):
-    """DS01_1 PCA 城市类型分布图。"""
+    """PCA 城市类型分布图。"""
     feature_cols = [
         "avg_temp",
         "avg_humidity",
@@ -295,7 +295,7 @@ def plot_ds01_1_pca(df):
 
     ax.axhline(0, color="gray", linewidth=0.8, alpha=0.5)
     ax.axvline(0, color="gray", linewidth=0.8, alpha=0.5)
-    ax.set_title("DS01_1  中国热门旅游城市聚类画像PCA图", pad=16)
+    ax.set_title("中国热门旅游城市聚类画像PCA图", pad=16)
     ax.set_xlabel(f"PC1（解释方差 {pca.explained_variance_ratio_[0] * 100:.1f}%）")
     ax.set_ylabel(f"PC2（解释方差 {pca.explained_variance_ratio_[1] * 100:.1f}%）")
     ax.legend(title="城市类型", loc="best", frameon=True)
@@ -312,7 +312,7 @@ def plot_ds01_1_pca(df):
 # 7. DS01_2 类型雷达图
 # =========================
 def plot_ds01_2_radar(df):
-    """DS01_2 城市类型雷达图：StandardScaler + clip + 映射到 0~1。"""
+    """城市类型雷达图：StandardScaler + clip + 映射到 0~1。"""
     radar_items = {
         "平均气温": "avg_temp",
         "湿度": "avg_humidity",
@@ -359,7 +359,7 @@ def plot_ds01_2_radar(df):
     ax.set_ylim(0, 1)
     ax.set_yticks([0.2, 0.4, 0.6, 0.8, 1.0])
     ax.set_yticklabels(["0.2", "0.4", "0.6", "0.8", "1.0"], fontsize=10)
-    ax.set_title("DS01_2  不同旅游城市类型的综合画像雷达图", pad=25)
+    ax.set_title("不同旅游城市类型的综合画像雷达图", pad=25)
     ax.legend(title="城市类型", loc="upper right", bbox_to_anchor=(1.35, 1.15), frameon=True)
 
     plt.tight_layout()
@@ -377,7 +377,7 @@ def plot_ds01_2_radar(df):
 # 8. DS01_3 地理分布图
 # =========================
 def plot_ds01_3_geo_distribution(df):
-    """DS01_3 城市类型地理空间分布图。"""
+    """城市类型地理空间分布图。"""
     if "lon" not in df.columns or "lat" not in df.columns:
         raise ValueError("city_profile.csv 中缺少 lon/lat 字段，无法绘制地理分布图")
 
@@ -393,7 +393,7 @@ def plot_ds01_3_geo_distribution(df):
         for _, row in sub.iterrows():
             ax.text(row["lon"] + 0.15, row["lat"] + 0.15, row["city"], fontsize=11)
 
-    ax.set_title("DS01_3  中国热门旅游城市聚类空间分布图", pad=16)
+    ax.set_title("中国热门旅游城市聚类空间分布图", pad=16)
     ax.set_xlabel("经度")
     ax.set_ylabel("纬度")
     ax.legend(title="城市类型", loc="best", frameon=True)
@@ -410,7 +410,7 @@ def plot_ds01_3_geo_distribution(df):
 # 9. DS01_4 类型特征热力图
 # =========================
 def plot_ds01_4_type_feature_heatmap(df):
-    """DS01_4 城市类型特征热力图，突出类型画像，避免与 DS03 排行榜重复。"""
+    """城市类型特征热力图，突出类型画像，避免与 DS03 排行榜重复。"""
     heatmap_items = {
         "平均气温": "avg_temp",
         "湿度": "avg_humidity",
@@ -444,7 +444,7 @@ def plot_ds01_4_type_feature_heatmap(df):
         cbar_kws={"label": "标准化得分（Z-score）"}, ax=ax,
     )
 
-    ax.set_title("DS01_4  不同旅游城市类型特征热力图", pad=16)
+    ax.set_title("不同旅游城市类型特征热力图", pad=16)
     ax.set_xlabel("指标")
     ax.set_ylabel("城市类型")
     ax.tick_params(axis="x", rotation=0)
@@ -463,7 +463,7 @@ def plot_ds01_4_type_feature_heatmap(df):
 # 10. DS01_5 城市类型占比饼图
 # =========================
 def plot_ds01_5_type_pie(df):
-    """DS01_5 城市类型占比饼图，替代纯文字信息图。"""
+    """城市类型占比饼图，替代纯文字信息图。"""
     count_df = (
         df.groupby("city_type")["city"]
         .apply(lambda x: "、".join(x.tolist()))
@@ -507,7 +507,7 @@ def plot_ds01_5_type_pie(df):
         autotext.set_fontsize(12)
         autotext.set_color("black")
 
-    ax.set_title("DS01_5  不同旅游城市类型数量占比图", pad=20)
+    ax.set_title("不同旅游城市类型数量占比图", pad=20)
 
     note_lines = []
     for _, row in count_df.iterrows():

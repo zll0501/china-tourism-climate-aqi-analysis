@@ -303,7 +303,7 @@ def plot_ds02_1_temperature_trend(city_year):
         label=f"平均趋势线：{slope:.3f}℃/年"
     )
 
-    ax.set_title("DS02_1 中国热门旅游城市十年平均气温变化趋势（2016-2025）", pad=18)
+    ax.set_title("中国热门旅游城市十年平均气温变化趋势（2016-2025）", pad=18)
     ax.set_xlabel("年份")
     ax.set_ylabel("平均气温（℃）")
     ax.set_xticks(sorted(city_year["year"].unique()))
@@ -384,7 +384,7 @@ def plot_ds02_2_season_comfort_box(city_season):
         ax=ax
     )
 
-    ax.set_title("DS02_2 不同季节气候舒适度分布（2016-2025）", pad=18)
+    ax.set_title("不同季节气候舒适度分布（2016-2025）", pad=18)
     ax.set_xlabel("季节")
     ax.set_ylabel("气候舒适度指数")
     ax.grid(True, axis="y", linestyle="-", alpha=0.25)
@@ -447,7 +447,7 @@ def plot_ds02_3_air_quality_heatmap(city_year):
         ax=ax
     )
 
-    ax.set_title("DS02_3 近三年城市空气质量得分变化热力图（2023-2025）", pad=18)
+    ax.set_title("近三年城市空气质量得分变化热力图（2023-2025）", pad=18)
     ax.set_xlabel("年份")
     ax.set_ylabel("城市")
 
@@ -543,7 +543,7 @@ def plot_ds02_4_extreme_weather_trend(city_year):
         bbox=dict(boxstyle="round,pad=0.45", facecolor="white", edgecolor="#CCCCCC", alpha=0.9)
     )
 
-    ax.set_title("DS02_4 中国热门旅游城市极端天气变化趋势（2016-2025）", pad=18)
+    ax.set_title("中国热门旅游城市极端天气变化趋势（2016-2025）", pad=18)
     ax.set_xlabel("年份")
     ax.set_ylabel("平均天数")
     ax.set_xticks(sorted(city_year["year"].unique()))

@@ -116,13 +116,12 @@ def setup_style():
 
 def save_fig(filename):
     out_path = FIGURE_DIR / filename
-    plt.tight_layout()
     plt.savefig(out_path, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close()
     print(f"已保存：{out_path}")
 
 
-def add_note(fig, text, y=0.01):
+def add_note(fig, text, y=0.03):
     fig.text(0.5, y, text, ha="center", va="bottom", fontsize=11, color="#333333")
 
 
@@ -361,7 +360,7 @@ def plot_ds04_1_performance(performance):
     ymin = min(-0.2, perf["r2"].min() - 0.1)
     ymax = min(1.0, max(0.2, perf["r2"].max() + 0.15))
     ax1.set_ylim(ymin, ymax)
-    ax1.set_title("DS04_1 多污染物预测性能比较", pad=18, fontweight="bold")
+    ax1.set_title("多污染物预测性能比较", pad=18, fontweight="bold")
     ax1.grid(axis="y", alpha=0.25)
 
     for bar, value in zip(bars, perf["r2"]):
@@ -394,10 +393,10 @@ def plot_ds04_1_performance(performance):
     add_note(
         fig,
         "说明：R²越高表示天气因素对该污染物的解释能力越强；测试集按城市分组划分，避免同一城市数据泄漏。",
-        y=0.01,
+        y=0.025,
     )
 
-    plt.tight_layout(rect=[0, 0.05, 1, 1])
+    plt.subplots_adjust(bottom=0.18)
     save_fig("DS04_1_weather_only_pollutant_prediction_performance.png")
 
 
@@ -435,7 +434,7 @@ def plot_ds04_2_importance_heatmap(importance_all):
         ax=ax,
     )
 
-    ax.set_title("DS04_2 天气因素对不同污染物预测的重要性热力图", pad=18, fontweight="bold")
+    ax.set_title("天气因素对不同污染物预测的重要性热力图", pad=18, fontweight="bold")
     ax.set_xlabel("污染物")
     ax.set_ylabel("天气特征")
     ax.tick_params(axis="x", rotation=0)
@@ -444,12 +443,12 @@ def plot_ds04_2_importance_heatmap(importance_all):
     add_note(
         fig,
         "说明：颜色越深表示该特征对对应污染物预测贡献越大；特征重要性反映模型解释，不等同于严格因果关系。",
-        y=0.01,
+        y=0.025,
     )
 
     pivot.to_csv(RESULT_DIR / "DS04_weather_only_feature_importance_pivot.csv", encoding="utf-8-sig")
 
-    plt.tight_layout(rect=[0, 0.05, 1, 1])
+    plt.subplots_adjust(bottom=0.18)
     save_fig("DS04_2_weather_feature_importance_heatmap.png")
 
 
@@ -524,7 +523,7 @@ def plot_ds04_3_shap_or_fallback(models, performance, model_data, features):
         )
 
         plt.title(
-            f"DS04_3{chr(65 + idx)} SHAP解释图：{pollutant_name}预测模型",
+            f"{chr(65 + idx)} SHAP解释图：{pollutant_name}预测模型",
             fontsize=18,
             fontweight="bold",
             pad=18
@@ -559,7 +558,7 @@ def main():
 
     plot_ds04_1_performance(performance)
     plot_ds04_2_importance_heatmap(importance_all)
-    plot_ds04_3_shap_or_fallback(models, performance, model_data, features)
+    #plot_ds04_3_shap_or_fallback(models, performance, model_data, features)
 
     print("\nDS04完成")
     print("输出图表目录：", FIGURE_DIR)
