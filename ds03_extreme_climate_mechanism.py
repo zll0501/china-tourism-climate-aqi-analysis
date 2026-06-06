@@ -138,21 +138,21 @@ def setup_style():
 
 def save_fig(filename):
     out_path = FIGURE_DIR / filename
-    plt.tight_layout()
     plt.savefig(out_path, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close()
     print(f"已保存：{out_path}")
 
 
-def add_note(fig, text, y=0.03):
+def add_note(fig, text, y=0.02):
     fig.text(
         0.5,
         y,
         text,
         ha="center",
         va="bottom",
-        fontsize=11,
-        color="#333333",
+        fontsize=10,
+        color="#555555",
+        style="italic"
     )
 
 
@@ -271,12 +271,12 @@ def plot_ds03_1_extreme_weather_heatmap(df):
     add_note(
         fig,
         "说明：颜色越深表示对应极端天气天数越多；城市按极端天气综合强度排序，右侧色带表示城市类型。",
-        y=0.01,
+        y=0.02,
     )
 
     plot_df.to_csv(RESULT_DIR / "DS03_1_extreme_weather_table.csv", index=False, encoding="utf-8-sig")
 
-    plt.tight_layout(rect=[0, 0.04, 0.88, 1])
+    plt.subplots_adjust(bottom=0.15)
     save_fig("DS03_1_extreme_weather_city_heatmap.png")
 
 
@@ -380,20 +380,30 @@ def plot_ds03_2_extreme_driver_scatter(df):
         unique.keys(),
         title="城市类型",
         loc="upper center",
-        bbox_to_anchor=(0.5, 1.02),
+        bbox_to_anchor=(0.5, 0.91),
         ncol=4,
         frameon=True,
     )
 
-    fig.suptitle("中国热门旅游城市极端天气驱动关系分析", fontsize=20, fontweight="bold", y=1.08)
+    fig.suptitle(
+        "中国热门旅游城市极端天气驱动关系分析",
+        fontsize=20,
+        fontweight="bold",
+        y=0.96
+    )
 
     add_note(
         fig,
         "说明：每个点代表一个城市，虚线为线性趋势；该图用于识别高温和冰冻天气的主要气候关联因素。",
-        y=0.01,
+        y=0.02,
     )
 
-    plt.tight_layout(rect=[0, 0.04, 1, 0.98])
+    plt.subplots_adjust(
+        top=0.82,
+        bottom=0.18,
+        hspace=0.42,
+        wspace=0.22
+    )
     save_fig("DS03_2_extreme_weather_driver_scatter.png")
 
 
@@ -451,10 +461,10 @@ def plot_ds03_3_spatial_distribution(df):
     add_note(
         fig,
         "说明：气泡越大、颜色越深表示对应极端天气天数越多；左图突出南方与内陆高温差异，右图突出北方冰冻天气集聚。",
-        y=0.01,
+        y=0.02,
     )
 
-    plt.tight_layout(rect=[0, 0.04, 1, 0.96])
+    plt.subplots_adjust(bottom=0.25)
     save_fig("DS03_3_extreme_weather_spatial_distribution.png")
 
 
