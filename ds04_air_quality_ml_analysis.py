@@ -558,7 +558,7 @@ def main():
 
     plot_ds04_1_performance(performance)
     plot_ds04_2_importance_heatmap(importance_all)
-    #plot_ds04_3_shap_or_fallback(models, performance, model_data, features)
+    plot_ds04_3_shap_or_fallback(models, performance, model_data, features)
 
     print("\nDS04完成")
     print("输出图表目录：", FIGURE_DIR)
