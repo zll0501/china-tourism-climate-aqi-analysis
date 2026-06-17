@@ -564,3 +564,235 @@
 .side-toc.open a {
   display: block;
 }
+/* ================================
+   Upgrade: figure insight blocks
+================================ */
+.figure-insight {
+  margin-top: 14px;
+  padding: 14px 15px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.section.dark .figure-insight {
+  background: #eef2f7;
+  border-color: #dbe3ef;
+}
+
+.figure-insight h4 {
+  margin: 10px 0 6px;
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 950;
+  border-left: 4px solid var(--orange);
+  padding-left: 8px;
+}
+
+.figure-insight h4:first-child {
+  margin-top: 0;
+}
+
+.figure-insight ul {
+  margin: 6px 0 10px 18px;
+  padding: 0;
+  line-height: 1.7;
+}
+
+.figure-insight li {
+  margin: 4px 0;
+  color: #475569;
+}
+
+.figure-insight p {
+  margin: 6px 0 0;
+  line-height: 1.75;
+  color: #475569;
+}
+
+/* ================================
+   Upgrade: research questions
+================================ */
+.research-questions {
+  margin-top: 36px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+.research-questions h3 {
+  margin: 0 0 18px;
+  color: var(--dark);
+  font-size: 24px;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.question-grid div {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.question-grid b {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--dark);
+  color: white;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.question-grid span {
+  display: block;
+  color: var(--dark);
+  font-weight: 900;
+  line-height: 1.55;
+}
+
+.question-grid small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ================================
+   Upgrade: gallery caption
+================================ */
+.gallery-view p#galleryCaption {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  padding: 16px 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  color: #475569;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.gallery-view p#galleryCaption strong {
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.gallery-view p#galleryCaption span {
+  display: block;
+}
+
+@media(max-width:1120px){
+  .question-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width:640px){
+  .question-grid { grid-template-columns: 1fr; }
+  .figure-insight { padding: 12px; }
+}
+
+/* ================================
+   Fix: readable text inside figure insight cards
+   解决：深色 section 中 figure-insight 文字继承白色，导致白底白字看不清
+================================ */
+.figure-card .figure-insight,
+.section.dark .figure-card .figure-insight,
+.figure-card figcaption .figure-insight,
+.section.dark .figure-card figcaption .figure-insight {
+  background: #f8fafc !important;
+  border: 1px solid #dbe3ef !important;
+  border-left: 5px solid #d97706 !important;
+  color: #334155 !important;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.figure-card .figure-insight h4,
+.section.dark .figure-card .figure-insight h4,
+.figure-card figcaption .figure-insight h4,
+.section.dark .figure-card figcaption .figure-insight h4 {
+  color: #0f172a !important;
+}
+
+.figure-card .figure-insight p,
+.figure-card .figure-insight li,
+.figure-card .figure-insight span,
+.section.dark .figure-card .figure-insight p,
+.section.dark .figure-card .figure-insight li,
+.section.dark .figure-card .figure-insight span,
+.figure-card figcaption .figure-insight p,
+.figure-card figcaption .figure-insight li,
+.figure-card figcaption .figure-insight span,
+.section.dark .figure-card figcaption .figure-insight p,
+.section.dark .figure-card figcaption .figure-insight li,
+.section.dark .figure-card figcaption .figure-insight span {
+  color: #475569 !important;
+}
+
+.figure-card .figure-insight ul,
+.section.dark .figure-card .figure-insight ul {
+  color: #475569 !important;
+}
+
+
+/* =========================================================
+   FINAL FIX: figure insight text color
+   Put this block at the VERY END of css/style.css.
+   It overrides dark-section global p/li color rules.
+========================================================= */
+.section.dark .figure-card figcaption .figure-insight,
+.section.dark .figure-card .figure-insight,
+.figure-card figcaption .figure-insight,
+.figure-card .figure-insight,
+.gallery-view .figure-insight {
+  background: #f8fafc !important;
+  border: 1px solid #dbe3ef !important;
+  border-left: 5px solid #d97706 !important;
+  color: #334155 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.section.dark .figure-card figcaption .figure-insight *,
+.section.dark .figure-card .figure-insight *,
+.figure-card figcaption .figure-insight *,
+.figure-card .figure-insight *,
+.gallery-view .figure-insight * {
+  color: #334155 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.section.dark .figure-card figcaption .figure-insight h4,
+.section.dark .figure-card .figure-insight h4,
+.figure-card figcaption .figure-insight h4,
+.figure-card .figure-insight h4,
+.gallery-view .figure-insight h4 {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+}
+
+.section.dark .figure-card figcaption .figure-insight li,
+.section.dark .figure-card .figure-insight li,
+.figure-card figcaption .figure-insight li,
+.figure-card .figure-insight li,
+.gallery-view .figure-insight li,
+.section.dark .figure-card figcaption .figure-insight p,
+.section.dark .figure-card .figure-insight p,
+.figure-card figcaption .figure-insight p,
+.figure-card .figure-insight p,
+.gallery-view .figure-insight p {
+  color: #475569 !important;
+}
